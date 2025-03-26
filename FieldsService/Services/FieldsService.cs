@@ -27,7 +27,7 @@ namespace FieldsService.Services
 
         public IEnumerable<FieldView> GetAll()
         {
-            return _fieldsRepository.GetAll();
+            throw new NotImplementedException();
         }
     }
 }
