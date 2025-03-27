@@ -32,7 +32,7 @@ namespace FieldsService.Controllers
         [HttpGet("distance_to_center")]
         public IActionResult GetDistanceToCenter(Coordinate coordinate, int id)
         {
-            FieldDistanceToCenterView result = _fieldsService.CalculateDistanceToCenter(coordinate, id);
+            double result = _fieldsService.CalculateDistanceToCenter(coordinate, id);
 
             return Ok(result);
         }

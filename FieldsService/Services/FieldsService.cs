@@ -10,7 +10,7 @@ namespace FieldsService.Services
 
         public FieldsService(IFieldsRepository fieldsRepository) => _fieldsRepository = fieldsRepository;
 
-        public FieldDistanceToCenterView CalculateDistanceToCenter(Coordinate coordinate, int id)
+        public double CalculateDistanceToCenter(Coordinate coordinate, int id)
         {
             throw new NotImplementedException();
         }

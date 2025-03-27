@@ -19,10 +19,7 @@ namespace FieldsService.Services
         /// <summary>
         /// Calculate distance from given point to the center of the field
         /// </summary>
-        /// <param name="len"></param>
-        /// <param name="wid"></param>
-        /// <param name="id"></param>
-        FieldDistanceToCenterView CalculateDistanceToCenter(Coordinate coordinate, int id);
+        double CalculateDistanceToCenter(Coordinate coordinate, int id);
         
         /// <summary>
         /// Finds what field given point lies in
