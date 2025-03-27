@@ -1,6 +1,7 @@
 using FieldsService.Models.Dtos;
 using FieldsService.Repositories;
 using FieldsService.Services;
+using FieldsService.Utils.Swagger;
 using FieldsService.Utils.Validation;
 using FluentValidation;
 
@@ -24,7 +25,10 @@ builder.Services
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SchemaFilter<CoordinateSchemaFilter>();
+});
 
 var app = builder.Build();
 
