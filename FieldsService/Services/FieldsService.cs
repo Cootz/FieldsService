@@ -1,4 +1,5 @@
 ﻿using FieldsService.Models;
+using FieldsService.Models.Dtos;
 using FieldsService.Models.Views;
 using FieldsService.Repositories;
 
@@ -10,17 +11,17 @@ namespace FieldsService.Services
 
         public FieldsService(IFieldsRepository fieldsRepository) => _fieldsRepository = fieldsRepository;
 
-        public double CalculateDistanceToCenter(Coordinate coordinate, int id)
+        public double CalculateDistanceToCenter(CoordinateDto coordinate, int id)
         {
             throw new NotImplementedException();
         }
 
-        public double CalculateFieldSize(int id)
+        public double GetFieldSize(int id)
         {
             throw new NotImplementedException();
         }
 
-        public ShortFieldView? FindByCoordinates(Coordinate coordinate)
+        public ShortFieldView? FindByCoordinates(CoordinateDto coordinate)
         {
             throw new NotImplementedException();
         }

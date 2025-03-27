@@ -1,4 +1,5 @@
 ﻿using FieldsService.Models;
+using FieldsService.Models.Dtos;
 using FieldsService.Models.Views;
 using FieldsService.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,15 +23,15 @@ namespace FieldsService.Controllers
         }
 
         [HttpGet("size")]
-        public IActionResult GetSize(int id)
+        public IActionResult GetSize([FromRoute] int id)
         {
-            double size = _fieldsService.CalculateFieldSize(id);
+            double size = _fieldsService.GetFieldSize(id);
 
             return Ok(size);
         }
 
         [HttpGet("distance_to_center")]
-        public IActionResult GetDistanceToCenter(Coordinate coordinate, int id)
+        public IActionResult GetDistanceToCenter([FromBody] CoordinateDto coordinate, [FromBody] int id)
         {
             double result = _fieldsService.CalculateDistanceToCenter(coordinate, id);
 
@@ -38,7 +39,7 @@ namespace FieldsService.Controllers
         }
 
         [HttpGet("by_coordinates")]
-        public IActionResult GetByCoordinates(Coordinate coordinate)
+        public IActionResult GetByCoordinates([FromBody] CoordinateDto coordinate)
         {
             ShortFieldView? field = _fieldsService.FindByCoordinates(coordinate);
 

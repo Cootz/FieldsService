@@ -1,4 +1,5 @@
 ﻿using FieldsService.Models;
+using FieldsService.Models.Dtos;
 using FieldsService.Models.Views;
 
 namespace FieldsService.Services
@@ -14,17 +15,17 @@ namespace FieldsService.Services
         /// Calculate field size in meters squared
         /// </summary>
         /// <param name="id">Field id</param>
-        double CalculateFieldSize(int id);
+        double GetFieldSize(int id);
 
         /// <summary>
         /// Calculate distance from given point to the center of the field
         /// </summary>
-        double CalculateDistanceToCenter(Coordinate coordinate, int id);
+        double CalculateDistanceToCenter(CoordinateDto coordinate, int id);
         
         /// <summary>
         /// Finds what field given point lies in
         /// </summary>
         /// <returns><see cref="ShortFieldView"/> if point lies in any field, otherwise <see langword="null"/></returns>
-        ShortFieldView? FindByCoordinates(Coordinate coordinate);
+        ShortFieldView? FindByCoordinates(CoordinateDto coordinate);
     }
 }
