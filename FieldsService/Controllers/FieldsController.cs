@@ -22,7 +22,7 @@ namespace FieldsService.Controllers
         }
 
         [HttpGet("size")]
-        public IActionResult GetSize([FromRoute] double id)
+        public IActionResult GetSize([FromQuery] double id)
         {
             double size = _fieldsService.GetFieldSize(id);
 
