@@ -20,7 +20,7 @@ namespace FieldsService.Services
         /// <summary>
         /// Calculate distance from given point to the center of the field
         /// </summary>
-        double CalculateDistanceToCenter(CoordinateDto coordinate, double id);
+        double CalculateDistanceToCenter(DistanceToCenterReqiest reqiest);
         
         /// <summary>
         /// Finds what field given point lies in

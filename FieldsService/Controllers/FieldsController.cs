@@ -1,5 +1,4 @@
-﻿using FieldsService.Models;
-using FieldsService.Models.Dtos;
+﻿using FieldsService.Models.Dtos;
 using FieldsService.Models.Views;
 using FieldsService.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -31,9 +30,9 @@ namespace FieldsService.Controllers
         }
 
         [HttpGet("distance_to_center")]
-        public IActionResult GetDistanceToCenter([FromBody] CoordinateDto coordinate, [FromBody] double id)
+        public IActionResult GetDistanceToCenter([FromBody] DistanceToCenterReqiest request)
         {
-            double result = _fieldsService.CalculateDistanceToCenter(coordinate, id);
+            double result = _fieldsService.CalculateDistanceToCenter(request);
 
             return Ok(result);
         }

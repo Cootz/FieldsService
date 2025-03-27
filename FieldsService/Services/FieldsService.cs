@@ -1,4 +1,5 @@
-﻿using FieldsService.Models;
+﻿using Aspose.Gis.Geometries;
+using FieldsService.Models;
 using FieldsService.Models.Dtos;
 using FieldsService.Models.Views;
 using FieldsService.Repositories;
@@ -21,13 +22,13 @@ namespace FieldsService.Services
             _idValidator = idValidator;
         }
 
-        public double CalculateDistanceToCenter(CoordinateDto coordinate, double id)
+        public double CalculateDistanceToCenter(DistanceToCenterReqiest reqiest)
         {
-            _idValidator.ValidateAndThrow(id);
-            _coordinateValidator.ValidateAndThrow(coordinate);
+            _idValidator.ValidateAndThrow(reqiest.FieldId);
+            _coordinateValidator.ValidateAndThrow(reqiest.Coordinate);
             
-            Field field = _fieldsRepository.FindById(id) ?? throw new KeyNotFoundException($"Fields with id {id} not found");
-            Coordinate coordinate1 = coordinate.ToModel();
+            Field field = _fieldsRepository.FindById(reqiest.FieldId) ?? throw new KeyNotFoundException($"Fields with id {reqiest.FieldId} not found");
+            Coordinate coordinate1 = reqiest.Coordinate.ToModel();
 
             return MathHelper.CalculateDistance(coordinate1, field.Center);
         }
@@ -45,7 +46,19 @@ namespace FieldsService.Services
         {
             _coordinateValidator.ValidateAndThrow(coordinate);
 
-            throw new NotImplementedException();
+            Coordinate coordinateModel = coordinate.ToModel();
+
+            var fields = _fieldsRepository.GetAll();
+
+            foreach (Field field in fields)
+            {
+                if (MathHelper.IsPointInsidePolygon(coordinateModel, field.Bounderies))
+                {
+                    return field.ToShortView();
+                }
+            }
+
+            return null;
         }
 
         public IEnumerable<FieldView> GetAll() => _fieldsRepository.GetAll().Select(field => field.ToView()).ToArray();
