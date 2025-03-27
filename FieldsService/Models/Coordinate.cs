@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using FieldsService.Utils.JsonConvertes;
+using System.Text.Json.Serialization;
 
 namespace FieldsService.Models
 {
@@ -10,10 +11,8 @@ namespace FieldsService.Models
         public Coordinate() { }
         public Coordinate(double longitude, double latitude) => (Longitude, Latitude) = (longitude, latitude);
 
-        [JsonPropertyName("lat")]
         public double Latitude { get; set; }
         
-        [JsonPropertyName("lng")]
         public double Longitude { get; set; }
 
         public override bool Equals(object? obj)
