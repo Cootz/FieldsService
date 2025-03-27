@@ -15,12 +15,12 @@ namespace FieldsService.Services
         /// Calculate field size in meters squared
         /// </summary>
         /// <param name="id">Field id</param>
-        double GetFieldSize(int id);
+        double GetFieldSize(double id);
 
         /// <summary>
         /// Calculate distance from given point to the center of the field
         /// </summary>
-        double CalculateDistanceToCenter(CoordinateDto coordinate, int id);
+        double CalculateDistanceToCenter(CoordinateDto coordinate, double id);
         
         /// <summary>
         /// Finds what field given point lies in

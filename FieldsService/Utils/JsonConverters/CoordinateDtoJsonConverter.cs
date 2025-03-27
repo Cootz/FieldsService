@@ -4,7 +4,7 @@ using System.Drawing.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace FieldsService.Utils.JsonConvertes
+namespace FieldsService.Utils.JsonConverters
 {
     internal class CoordinateDtoJsonConverter : JsonConverter<CoordinateDto>
     {

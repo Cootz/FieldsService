@@ -1,4 +1,4 @@
-﻿using FieldsService.Utils.JsonConvertes;
+﻿using FieldsService.Utils.JsonConverters;
 using System.Text.Json.Serialization;
 
 namespace FieldsService.Models

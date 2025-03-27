@@ -23,7 +23,7 @@ namespace FieldsService.Controllers
         }
 
         [HttpGet("size")]
-        public IActionResult GetSize([FromRoute] int id)
+        public IActionResult GetSize([FromRoute] double id)
         {
             double size = _fieldsService.GetFieldSize(id);
 
@@ -31,7 +31,7 @@ namespace FieldsService.Controllers
         }
 
         [HttpGet("distance_to_center")]
-        public IActionResult GetDistanceToCenter([FromBody] CoordinateDto coordinate, [FromBody] int id)
+        public IActionResult GetDistanceToCenter([FromBody] CoordinateDto coordinate, [FromBody] double id)
         {
             double result = _fieldsService.CalculateDistanceToCenter(coordinate, id);
 
