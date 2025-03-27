@@ -29,7 +29,7 @@ namespace FieldsService.Controllers
             return Ok(size);
         }
 
-        [HttpGet("distance_to_center")]
+        [HttpPost("distance_to_center")]
         public IActionResult GetDistanceToCenter([FromBody] DistanceToCenterReqiest request)
         {
             double result = _fieldsService.CalculateDistanceToCenter(request);
@@ -37,7 +37,7 @@ namespace FieldsService.Controllers
             return Ok(result);
         }
 
-        [HttpGet("by_coordinates")]
+        [HttpPost("by_coordinates")]
         public IActionResult GetByCoordinates([FromBody] CoordinateDto coordinate)
         {
             ShortFieldView? field = _fieldsService.FindByCoordinates(coordinate);
